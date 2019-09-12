@@ -20,6 +20,6 @@ class Api::V1::TodosController < Api::V1::BaseController
   private
 
   def todo_params
-    params.require(:todo).permit(:id, :name, :details, :when)
+    params.require(:todo).permit(:id, :title, :details, :when)
   end
 end
