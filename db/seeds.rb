@@ -5,3 +5,6 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+10.times {
+	Todo.create!(title: "Go to KL", details: "I have a technical test.", when: "Today at 11am.")
+}
