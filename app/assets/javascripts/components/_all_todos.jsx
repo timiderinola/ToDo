@@ -1,24 +1,21 @@
 class AllTodos extends React.Component {
 	constructor(props) {
 		super(props);
-		this.state = {
-			todos: []
-		}
+		this.handleDelete = this.handleDelete.bind(this);
 	}
 
-	componentDidMount() {
-		console.log("Component mounted");
-		$.getJSON('/api/v1/todos.json',
-			(response) => { this.setState({ todos: response }) });
+	handleDelete(id) {
+		this.props.handleDelete(id);
 	}
 
 	render() {
-		var todos = this.state.todos.map((todo) =>{
+		var todos = this.props.todos.map((todo) =>{
 			return (
 				<div key={todo.id}>
 					<h3>{todo.title}</h3>
 					<p>{todo.details}</p>
 					<p>{todo.when}</p>
+					<button onClick={this.handleDelete.bind(this, todo.id)}>Delete</button>
 				</div>
 			)
 		});
